@@ -45,7 +45,8 @@ return {
 
   { import = "astrocommunity.search.sad-nvim" },
   { import = "astrocommunity.search.nvim-hlslens" },
-  -- {
-  --   "kevinhwang91/nvim-hlslens",
-  -- },
+  {
+    "kevinhwang91/nvim-hlslens",
+    opts = function(_, opts) opts.calm_down = true end,
+  },
 }

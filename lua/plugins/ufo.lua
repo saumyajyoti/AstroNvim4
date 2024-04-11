@@ -27,18 +27,18 @@ return {
   opts = {
     open_fold_hl_timeout = 0,
     fold_virt_text_handler = function(text, lnum, endLnum, width)
-      local suffix = " ∙∙∙ "
-      local lines = ("[%d lines] "):format(endLnum - lnum)
+      local suffix = " " --- ∙∙∙ "
+      local lines = ("%d lines "):format(endLnum - lnum)
 
       local cur_width = 0
       for _, section in ipairs(text) do
         cur_width = cur_width + vim.fn.strdisplaywidth(section[1])
       end
 
-      suffix = suffix .. (" "):rep(width - cur_width - vim.fn.strdisplaywidth(lines) - 3)
+      suffix = suffix .. ("-"):rep(width - cur_width - vim.fn.strdisplaywidth(lines) - 3) .. ""
 
       table.insert(text, { suffix, "Comment" })
-      table.insert(text, { lines, "Todo" })
+      table.insert(text, { lines, "WildMenu" })
       return text
     end,
     preview = {
