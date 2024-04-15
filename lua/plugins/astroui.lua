@@ -33,5 +33,16 @@ return {
       LSPLoading9 = "⠇",
       LSPLoading10 = "⠏",
     },
+    status = { -- Configure characters used as separators for various elements
+      separators = {
+        none = { "", "" },
+        left = { "", "  " },
+        right = { "  ", "" },
+        center = { "  ", "  " },
+        tab = { "|", " " },
+        breadcrumbs = "  ", -- 
+        path = "  ",
+      },
+    },
   },
 }

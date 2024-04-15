@@ -44,9 +44,14 @@ return {
   { import = "astrocommunity.editing-support.nvim-devdocs" },
 
   { import = "astrocommunity.search.sad-nvim" },
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
+  { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.search.nvim-hlslens" },
   {
     "kevinhwang91/nvim-hlslens",
     opts = function(_, opts) opts.calm_down = true end,
   },
+  { import = "astrocommunity.utility.noice-nvim" },
+  { import = "astrocommunity.code-runner.overseer-nvim" },
+  -- { import = "astrocommunity.lsp.lsp-lens-nvim" },
 }

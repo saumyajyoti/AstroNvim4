@@ -1,3 +1,7 @@
+vim.api.nvim_create_user_command("Insp", function() require("noice").redirect "Inspect!" end, { nargs = 0 })
+vim.cmd "aunmenu PopUp.How-to\\ disable\\ mouse"
+vim.cmd "aunmenu PopUp.-1-"
+
 if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- This will run last in the setup process and is a good place to configure
