@@ -53,5 +53,15 @@ return {
   },
   { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.code-runner.overseer-nvim" },
+  { import = "astrocommunity.lsp.inc-rename-nvim" },
+  { import = "astrocommunity.utility.nvim-toggler" },
+  {
+    "nguyenvukhang/nvim-toggler",
+    opts = function(_, opts)
+      opts.inverses = {
+        ["TRUE"] = "FALSE",
+      }
+    end,
+  },
   -- { import = "astrocommunity.lsp.lsp-lens-nvim" },
 }

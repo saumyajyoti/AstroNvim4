@@ -26,7 +26,7 @@ return {
   gitsigns = true,
   indent_blankline = {
     enabled = true,
-    scope_color = "overlay1",
+    scope_color = "overlay2",
     colored_indent_levels = true,
   },
   mini = {

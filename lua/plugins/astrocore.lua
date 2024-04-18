@@ -17,6 +17,10 @@ return {
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
+    rooter = {
+      -- show notification on every working directory change
+      notify = true,
+    },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
       virtual_text = true,
@@ -30,7 +34,7 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
-        autochdir = true,
+        -- autochdir = true,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -61,11 +65,13 @@ return {
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "󱂬 Buffers" },
+
+        ["<Leader><Leader>"] = { desc = " Workspace" },
+        ["<Leader><Leader>r"] = { "<Cmd>AstroRoot<CR>", desc = "CD Workspace Root" },
+        ["<Leader><Leader>d"] = { "<Cmd>pwd<CR>", desc = "Show Current Directory" },
+
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
-
-        -- search highlight groups
-        ["<Leader>fH"] = { ":Telescope highlights<cr>", desc = "Highlight groups" },
       },
       t = {
         -- setting a mapping to false will disable it

@@ -8,9 +8,11 @@ return {
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+      require("astrocore").list_insert_unique(opts.ensure_installed, {
         "lua_ls",
         "clangd",
+        "csharp_ls",
+        "cmake",
         -- add more arguments for adding more language servers
       })
     end,
@@ -21,7 +23,7 @@ return {
     -- overrides `require("mason-null-ls").setup(...)`
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+      require("astrocore").list_insert_unique(opts.ensure_installed, {
         "prettierd",
         "cpplint",
         "stylua",
@@ -34,7 +36,7 @@ return {
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+      require("astrocore").list_insert_unique(opts.ensure_installed, {
         -- "python",
         -- add more arguments for adding more debuggers
       })
