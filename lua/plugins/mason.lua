@@ -9,10 +9,10 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "lua_ls",
-        "clangd",
-        "csharp_ls",
-        "cmake",
+        -- "lua_ls",
+        -- "clangd",
+        -- "csharp_ls",
+        -- "cmake",
         -- add more arguments for adding more language servers
       })
     end,

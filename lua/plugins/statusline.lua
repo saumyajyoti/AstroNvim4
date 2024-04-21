@@ -33,7 +33,7 @@ return {
         -- define the separators between each section
         separators = {
           left = { " ", "" }, -- separator for the left side of the statusline
-          right = { " ", "" }, -- separator for the right side of the statusline
+          right = { "", " " }, -- separator for the right side of the statusline
           tab = { " ", " " },
         },
         -- add new colors that can be used by heirline
@@ -67,16 +67,16 @@ return {
     "rebelot/heirline.nvim",
     optional = true,
     opts = function(_, opts)
-      local Lazy = {
-        condition = require("lazy.status").has_updates,
-        update = { "User", pattern = "LazyUpdate" },
-        provider = function() return "   " .. require("lazy.status").updates() .. " " end,
-        on_click = {
-          callback = function() require("lazy").update() end,
-          name = "update_plugins",
-        },
-        hl = { fg = "gray" },
-      }
+      -- local Lazy = {
+      --   condition = require("lazy.status").has_updates,
+      --   update = { "User", pattern = "LazyUpdate" },
+      --   provider = function() return "   " .. require("lazy.status").updates() .. " " end,
+      --   on_click = {
+      --     callback = function() require("lazy").update() end,
+      --     name = "update_plugins",
+      --   },
+      --   hl = { fg = "gray" },
+      -- }
 
       local status = require "astroui.status"
       opts.statusline = { -- statusline
@@ -84,17 +84,29 @@ return {
         status.component.mode { mode_text = { padding = { left = 1, right = 1 } } },
         status.component.git_branch(),
         -- status.component.file_info(),
+        status.component.git_diff(),
+        status.component.diagnostics(),
+        status.component.fill(),
+        status.component.cmd_info(),
+        status.component.fill(),
+        status.component.lsp { lsp_progress = false },
+        status.component.virtual_env(),
+        status.component.treesitter(),
+
         {
           -- define a simple component where the provider is just a folder icon
           status.component.builder {
             -- astronvim.get_icon gets the user interface icon for a closed folder with a space after it
-            { provider = " " .. require("astroui").get_icon "FolderClosed" },
+            { provider = require("astroui").get_icon "FolderClosed" },
             -- add padding after icon
-            padding = { left = 2, right = 1 },
+            padding = { left = 0, right = 1 },
             -- set the foreground color to be used for the icon
             hl = { fg = "bg" },
             -- use the right separator and define the background color
-            surround = { separator = { " ", "" }, color = "folder_icon_bg" },
+            surround = {
+              separator = { "", "" }, -- "right", -- { " ", "" },
+              color = "#a96b2c", -- "folder_icon_bg",
+            },
           },
           -- add a file information component and only show the current working directory name
           status.component.file_info {
@@ -111,25 +123,17 @@ return {
             file_read_only = false,
             -- use no separator for this part but define a background color
             surround = {
-              separator = "none",
+              separator = { "", "" }, -- "left", -- none",
               color = "file_info_bg",
               condition = false,
             },
           },
         },
-        status.component.git_diff(),
-        status.component.diagnostics(),
-        status.component.fill(),
-        status.component.cmd_info(),
-        status.component.fill(),
-        status.component.lsp(),
-        status.component.virtual_env(),
-        status.component.treesitter(),
         -- Lazy,
         status.component.builder {
           condition = require("lazy.status").has_updates,
           update = { "User", pattern = "LazyUpdate" },
-          provider = function() return "   " .. require("lazy.status").updates() .. " " end, -- "   " .. require("lazy.status").updates() .. " " },
+          provider = function() return "   " .. require("lazy.status").updates() end, -- "   " .. require("lazy.status").updates() .. " " },
           on_click = {
             callback = function() require("lazy").update { show = false } end,
             name = "update_plugins",
@@ -141,7 +145,7 @@ return {
         status.component.nav {
           ruler = {},
           percentage = { padding = { left = 1 } },
-          scrollbar = {}, -- padding = { left = 1 }, hl = { fg = "scrollbar" } },
+          scrollbar = false, -- padding = { left = 1 }, hl = { fg = "scrollbar" } },
           surround = { separator = "right", color = "nav_bg" },
         },
         -- status.component.mode { surround = { separator = "right" } },

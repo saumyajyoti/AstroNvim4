@@ -5,7 +5,7 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
+  -- { import = "astrocommunity.pack.lua" },
   -- { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
   -- { import = "astrocommunity.bars-and-lines.lualine-nvim" },
   -- import/override with your plugins folder
@@ -32,6 +32,9 @@ return {
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.ps1" },
+  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.cmake" },
   --
   -- editing
   --
@@ -43,9 +46,10 @@ return {
   { import = "astrocommunity.editing-support.comment-box-nvim" },
   { import = "astrocommunity.editing-support.nvim-devdocs" },
 
-  { import = "astrocommunity.search.sad-nvim" },
+  -- { import = "astrocommunity.search.sad-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
+  { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.search.nvim-hlslens" },
   {
     "kevinhwang91/nvim-hlslens",
@@ -63,5 +67,7 @@ return {
       }
     end,
   },
+  { import = "astrocommunity.completion.copilot-lua" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- { import = "astrocommunity.lsp.lsp-lens-nvim" },
 }

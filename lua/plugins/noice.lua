@@ -3,16 +3,35 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     cond = not vim.g.neovide,
-    dependencies = { "MunifTanjim/nui.nvim" },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            c = {
+              ["<C-Enter>"] = {
+                function() require("noice").redirect(vim.fn.getcmdline()) end,
+                desc = "Redirect Commandline",
+              },
+            },
+          },
+        },
+      },
+    },
     opts = {
+      popupmenu = {
+        -- cmp-cmdline has more sources and can be extended
+        backend = "cmp", -- backend to use to show regular cmdline completions
+      },
       messages = {
         view_search = false, -- view for search count messages. Set to `false` to disable
       },
       lsp = {
         override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+          ["vim.lsp.util.stylize_markdown"] = false,
+          ["cmp.entry.get_documentation"] = false,
         },
         progress = { enabled = true },
         hover = { enabled = false, silent = false },
@@ -72,13 +91,5 @@ return {
       },
     },
     -- init = function() vim.g.lsp_handlers_enabled = false end,
-    keys = {
-      {
-        "<S-Enter>",
-        function() require("noice").redirect(vim.fn.getcmdline()) end,
-        mode = "c",
-        desc = "Redirect Cmdline",
-      },
-    },
   },
 }

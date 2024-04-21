@@ -8,6 +8,17 @@ return {
     "nvim-telescope/telescope-live-grep-args.nvim",
     "nvim-telescope/telescope-media-files.nvim",
     {
+      "polirritmico/telescope-lazy-plugins.nvim",
+      opts = {
+        extensions = {
+          lazy_plugins = {
+            lazy_config = vim.fn.stdpath "config" .. "/lua/lazy_setup.lua", -- path to the file containing the lazy opts and setup() call.
+            lazy_spec_table = vim.fn.stdpath "config" .. "/lua/lazy_setup.lua",
+          },
+        },
+      },
+    },
+    {
       "AstroNvim/astrocore",
       opts = {
         mappings = {
@@ -24,6 +35,7 @@ return {
             -- },
             -- search highlight groups
             ["<Leader>fH"] = { "<Cmd>Telescope highlights<cr>", desc = "Highlight groups" },
+            ["<Leader>fp"] = { "<Cmd>Telescope lazy_plugins<cr>", desc = "Plugins configurations" },
           },
         },
       },
@@ -41,5 +53,6 @@ return {
     telescope.load_extension "undo"
     telescope.load_extension "file_browser"
     telescope.load_extension "live_grep_args"
+    telescope.load_extension "lazy_plugins"
   end,
 }
