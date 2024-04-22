@@ -2,6 +2,20 @@
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
+local function custom_attach(client, bufnr)
+  require("lsp_signature").on_attach {
+    bind = true,
+    use_lspsaga = false,
+    floating_window = true,
+    fix_pos = true,
+    hint_enable = true,
+    hi_parameter = "Search",
+    handler_opts = { "double" },
+  }
+end
+local capabilities = {
+  offsetEncoding = "utf-8",
+}
 
 ---@type LazySpec
 return {
@@ -38,11 +52,32 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
+      "ahk2",
       -- "pyright"
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
+      ahk2 = {
+        autostart = true,
+        cmd = {
+          "node",
+          vim.fn.expand "$HOME/vscode-autohotkey2-lsp/server/dist/server.js",
+          "--stdio",
+        },
+        filetypes = { "ahk", "autohotkey", "ah2" },
+        init_options = {
+          locale = "en-us",
+          InterpreterPath = "C:/Program Files/AutoHotkey/v2/AutoHotkey.exe",
+          -- Same as initializationOptions for Sublime Text4, convert json literal to lua dictionary literal
+        },
+        single_file_support = true,
+        flags = { debounce_text_changes = 500 },
+        capabilities = capabilities,
+        on_attach = custom_attach,
+        -- root directory detection for detecting the project root
+        root_dir = require("lspconfig.util").root_pattern(".git", ".ahk"),
+      },
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
     },
     -- customize how language servers are attached

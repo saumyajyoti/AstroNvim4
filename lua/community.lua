@@ -35,6 +35,7 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.cmake" },
+  { import = "astrocommunity.pack.python" },
   --
   -- editing
   --
@@ -69,5 +70,6 @@ return {
   },
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.lsp.lsp-signature-nvim" },
   -- { import = "astrocommunity.lsp.lsp-lens-nvim" },
 }
