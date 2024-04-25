@@ -48,7 +48,7 @@ return {
   opts = function()
     local startify = require "alpha.themes.startify"
 
-    local cfgpath = vim.fn.stdpath "config" .. "/lua/user/init.lua"
+    local cfgpath = vim.fn.stdpath "config" .. "/lua/lazy_setup.lua"
     startify.section.header.val = header1
     startify.section.header.opts.hl = "Function"
     startify.section.bottom_buttons.val = {
@@ -58,7 +58,7 @@ return {
       startify.button("SPC f f", "󰈞  Find file"),
       startify.button("SPC f w", "󰊄  Live grep"),
       startify.button("c", "  Configuration", "<cmd>e " .. cfgpath .. "|Neotree show<CR>"),
-      startify.button("u", "  Update plugins", "<cmd>AstroUpdatePackages<CR>"),
+      startify.button("u", "  Update plugins", "<cmd>AstroUpdate<CR>"),
       startify.button("q", "󰅚  Quit", "<cmd>qa<CR>"),
     }
     startify.section.footer.val = { footer }
