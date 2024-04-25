@@ -3,6 +3,50 @@
 
 ---@type LazySpec
 return {
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "User AstroFile",
+    main = "ibl",
+    dependencies = { "HiPhish/rainbow-delimiters.nvim" },
+    opts = function(_, opts)
+      if not opts.indent then opts.indent = {} end
+      opts.indent = {
+        char = "┊", -- ┊┊ │ --
+        tab_char = "│",
+      }
+      if not opts.scope then opts.scope = {} end
+      opts.scope.enabled = true
+      -- opts.scope.char = "-"
+      -- opts.scope.show_start = true
+      -- opts.scope.show_end = true
+      opts.scope.show_exact_scope = true
+      opts.scope.highlight = vim.tbl_get(vim.g, "rainbow_delimiters", "highlight")
+        or {
+          "RainbowDelimiterRed",
+          "RainbowDelimiterYellow",
+          "RainbowDelimiterBlue",
+          "RainbowDelimiterOrange",
+          "RainbowDelimiterGreen",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
+        }
+      if not opts.exclude then opts.exclude = {} end
+      opts.exclude = {
+        filetypes = { "help", "alpha", "dashboard", "Trouble", "lazy", "neo-tree" },
+      }
+      if not opts.whitespace then opts.whitespace = {} end
+      opts.whitespace = {
+        remove_blankline_trail = true,
+      }
+    end,
+
+    config = function(plugin, opts)
+      require(plugin.main).setup(opts)
+
+      local hooks = require "ibl.hooks"
+      hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+    end,
+  },
 
   {
     "willothy/wezterm.nvim",
@@ -30,6 +74,38 @@ return {
   --   end,
   -- },
   {
+    "folke/which-key.nvim",
+    opts = function(_, opts)
+      opts.plugins = {
+        marks = true, -- shows a list of your marks on ' and `
+        registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+        -- the presets plugin, adds help for a bunch of default keybindings in Neovim
+        -- No actual key bindings are created
+        spelling = {
+          enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+          suggestions = 20, -- how many suggestions should be shown in the list?
+        },
+        presets = {
+          operators = true, -- adds help for operators like d, y, ...
+          motions = true, -- adds help for motions
+          text_objects = true, -- help for text objects triggered after entering an operator
+          windows = false, -- default bindings on <c-w>
+          nav = true, -- misc bindings to work with windows
+          z = true, -- bindings for folds, spelling and others prefixed with z
+          g = true, -- bindings for prefixed with g
+        },
+      }
+      -- opts.window = {
+      --   border = "single", -- none, single, double, shadow
+      --   position = "bottom", -- bottom, top
+      --   margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
+      --   padding = { 1, 2, 1, 2 }, -- extra window padding [top, right, bottom, left]
+      --   winblend = 0, -- value between 0-100 0 for fully opaque and 100 for fully transparent
+      --   zindex = 1000, -- positive value to position WhichKey above other floating windows.
+      -- }
+    end,
+  },
+  {
     "mrjones2014/smart-splits.nvim",
     lazy = false,
     dependencies = {
@@ -38,7 +114,36 @@ return {
         opts = {
           mappings = {
             n = {
+              ["<c-w>"] = {
+                name = "Window",
+                -- s = "Split window",
+                -- v = "Split window vertically",
+                w = "Switch windows",
+                q = "Quit a window",
+                o = "Close all other windows",
+                T = "Break out into a new tab",
+                ["-"] = "Decrease height",
+                ["+"] = "Increase height",
+                ["<lt>"] = "Decrease width",
+                [">"] = "Increase width",
+                ["|"] = "Max out the width",
+                ["_"] = "Max out the height",
+                ["="] = "Equally high and wide",
+                -- h = "Go to the left window",
+                -- l = "Go to the right window",
+                -- k = "Go to the up window",
+                -- j = "Go to the down window",
+                s = {
+                  name = "Smart Swap",
+                  x = "Swap current with next",
+                  -- ["h"] = {
+                  --   function() require("smart-splits").swap_buf_left() end,
+                  --   desc = "Smart Swap Buffer Left",
+                  -- },
+                },
+              },
 
+              -- disable default mapping
               ["<A-h>"] = {
                 function() require("smart-splits").resize_left() end,
                 desc = "Smart Resize Left",
@@ -65,29 +170,30 @@ return {
                 desc = "Smart Move Cursor Previous",
               },
               -- swapping buffers between windows
-              ["<leader><leader>h"] = {
+              ["<C-w>sh"] = {
                 function() require("smart-splits").swap_buf_left() end,
                 desc = "Smart Swap Buffer Left",
               },
-              ["<leader><leader>j"] = {
+
+              ["<C-w>sj"] = {
                 function() require("smart-splits").swap_buf_down() end,
                 desc = "Smart Swap Buffer Down",
               },
-              ["<leader><leader>k"] = {
+              ["<C-w>sk"] = {
                 function() require("smart-splits").swap_buf_up() end,
                 desc = "Smart Swap Buffer Up",
               },
-              ["<leader><leader>l"] = {
+              ["<C-w>sl"] = {
                 function() require("smart-splits").swap_buf_right() end,
                 desc = "Smart Swap Buffer Right",
               },
-              ["<leader><leader>\\"] = {
+              ["<C-w>s/"] = {
                 function() require("smart-splits").swap_buf_previous() end,
                 desc = "Smart Swap Buffer Previous",
               },
 
               -- resizing splits
-              ["<leader>R"] = { function() require("smart-splits").start_resize_mode() end, desc = "Smart Resize Mode" }, -- end_resize_mode()
+              ["<C-w>R"] = { function() require("smart-splits").start_resize_mode() end, desc = "Smart Resize Mode" }, -- end_resize_mode()
             },
           },
         },
@@ -204,24 +310,4 @@ return {
       ),
     },
   },
-  -- {
-  --   "rebelot/heirline.nvim",
-  --   opts = function(_, opts)
-  --     local status = require "astroui.status"
-  --
-  --     opts.statusline[1] = status.component.mode { mode_text = { padding = { left = 1, right = 1 } } } -- add the mode text
-  --     opts.statusline[3] = status.component.file_info {
-  --       -- enable the file_icon and disable the highlighting based on filetype
-  --       filename = { fallback = "Empty" },
-  --       -- disable some of the info
-  --       filetype = false,
-  --       file_read_only = false,
-  --       -- add padding
-  --       padding = { right = 1 },
-  --       -- define the section separator
-  --       surround = { separator = "left", condition = false },
-  --     }
-  --     opts.statusline = nil
-  --   end,
-  -- },
 }

@@ -64,11 +64,14 @@ return {
         },
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
-        ["<Leader>b"] = { desc = "󱂬 Buffers" },
+        -- ["<Leader>b"] = { desc = "󱂬 Buffers" },
+
+        ["<leader>bx"] = { "<Cmd>close<CR>", desc = "Close Pane" },
 
         ["<Leader><Leader>"] = { desc = " Workspace" },
         ["<Leader><Leader>r"] = { "<Cmd>AstroRoot<CR>", desc = "CD Workspace Root" },
         ["<Leader><Leader>d"] = { "<Cmd>pwd<CR>", desc = "Show Current Directory" },
+        ["<Leader>w"] = false, -- disable save; C-S already does force save
 
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command

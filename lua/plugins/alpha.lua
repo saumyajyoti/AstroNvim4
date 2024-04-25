@@ -17,7 +17,7 @@ local header1 = {
   " ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ",
   " ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ",
   "      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ",
-  "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ",
+  "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣟⣀⣀⣤⣾⡿⠃     ",
 
   -- "                                                                       ",
   -- "🮝▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒🮟   ",
@@ -48,18 +48,33 @@ return {
   opts = function()
     local startify = require "alpha.themes.startify"
 
-    local cfgpath = vim.fn.stdpath "config" .. "/lua/lazy_setup.lua"
+    -- local cfgpath = vim.fn.stdpath "config" .. "/lua/lazy_setup.lua"
     startify.section.header.val = header1
     startify.section.header.opts.hl = "Function"
     startify.section.bottom_buttons.val = {
       -- { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
       { type = "padding", val = 1 },
       -- startify.button("e", "  New file", "<cmd>ene<CR>"),
-      startify.button("SPC f f", "󰈞  Find file"),
-      startify.button("SPC f w", "󰊄  Live grep"),
-      startify.button("c", "  Configuration", "<cmd>e " .. cfgpath .. "|Neotree show<CR>"),
-      startify.button("u", "  Update plugins", "<cmd>AstroUpdate<CR>"),
+      startify.button("f", "󰈞  Find Files", "<cmd>Telescope find_files<CR>"),
+      startify.button("w", "󱩾  Live Grep", "<cmd>Telescope live_grep<CR>"),
+      -- startify.button("c", "  Configuration", "<cmd>e " .. cfgpath .. "|Neotree show<CR>"),
+      startify.button("u", "󱧘  Update Plugins", "<cmd>AstroUpdate<CR>"),
       startify.button("q", "󰅚  Quit", "<cmd>qa<CR>"),
+      -- startify.button("Q", "󰅚  Quit without saving", "<cmd>qa!<CR>"),
+      startify.button("R", "  Reload", "<cmd>source $MYVIMRC<CR>"),
+      -- startify.button("S", "󰅚  Save", "<cmd>wa<CR>"),
+      -- startify.button("W", "󰅚  Save All", "<cmd>wa<CR>"),
+      -- startify.button("E", "󰅚  Exit", "<cmd>qa<CR>"),
+      startify.button("H", "󰭎 󰋗  Help", "<cmd>Telescope help_tags<CR>"),
+      startify.button("P", "󰭎   Projects", "<cmd>Telescope projects<CR>"),
+      startify.button("T", "󰭎   Todo", "<cmd>Telescope todo<CR>"),
+      startify.button(
+        "c",
+        "󰭎   Config",
+        "<cmd>Telescope find_files cwd=" .. vim.fn.stdpath "config" .. "/lua<CR>"
+      ),
+
+      -- startify.button("V", "  Vimrc", "<cmd>Telescope find_files cwd=" .. vim.fn.stdpath "config" .. "<CR>"),
     }
     startify.section.footer.val = { footer }
     -- startify.config.layout = {

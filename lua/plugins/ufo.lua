@@ -12,21 +12,15 @@ end
 
 return {
   "kevinhwang91/nvim-ufo",
-  dependencies = {
-    "kevinhwang91/promise-async",
-  },
-  event = "BufRead",
+
   keys = {
-    { "zR", function() require("ufo").openAllFolds() end, desc = "Open all folds" },
-    { "zM", function() require("ufo").closeAllFolds() end, desc = "Close all folds" },
-    { "zZ", function() require("ufo").peekFoldedLinesUnderCursor() end, desc = "Peek folded lines under cursor" },
 
     { "n", function() nN "n" end, mode = { "n", "x" }, desc = "UFO Next" },
     { "N", function() nN "N" end, mode = { "n", "x" }, desc = "UFO Prev" },
   },
-  opts = {
-    open_fold_hl_timeout = 0,
-    fold_virt_text_handler = function(text, lnum, endLnum, width)
+  opts = function(_, opts)
+    opts.open_fold_hl_timeout = 0
+    opts.fold_virt_text_handler = function(text, lnum, endLnum, width)
       local suffix = " " --- ∙∙∙ "
       local lines = ("%d lines "):format(endLnum - lnum)
 
@@ -40,13 +34,13 @@ return {
       table.insert(text, { suffix, "Comment" })
       table.insert(text, { lines, "WildMenu" })
       return text
-    end,
-    preview = {
+    end
+    opts.preview = {
       win_config = {
         border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
         winblend = 0,
         winhighlight = "Normal:LazyNormal",
       },
-    },
-  },
+    }
+  end,
 }
