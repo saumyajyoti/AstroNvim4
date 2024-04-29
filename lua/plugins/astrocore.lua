@@ -69,7 +69,7 @@ return {
         ["<leader>bx"] = { "<Cmd>close<CR>", desc = "Close Pane" },
 
         ["<Leader><Leader>"] = { desc = " Workspace" },
-        ["<Leader><Leader>r"] = { "<Cmd>AstroRoot<CR>", desc = "CD Workspace Root" },
+        ["<Leader><Leader>r"] = { "<Cmd>cd %:p:h<CR>", desc = "CD File Path" },
         ["<Leader><Leader>d"] = { "<Cmd>pwd<CR>", desc = "Show Current Directory" },
         ["<Leader>w"] = false, -- disable save; C-S already does force save
 

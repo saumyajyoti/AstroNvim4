@@ -76,6 +76,9 @@ return {
   {
     "folke/which-key.nvim",
     opts = function(_, opts)
+      opts.icons = {
+        separator = " ", -- "➜ ",
+      }
       opts.plugins = {
         marks = true, -- shows a list of your marks on ' and `
         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -244,14 +247,14 @@ return {
       )
     end,
   },
-  {
-    "folke/which-key.nvim",
-    opts = {
-      icons = {
-        separator = " ", -- "➜ ",
-      },
-    },
-  },
+  -- {
+  --   "folke/which-key.nvim",
+  --   opts = {
+  --     icons = {
+  --       separator = " ", -- "➜ ",
+  --     },
+  --   },
+  -- },
   {
     "rcarriga/nvim-notify",
     -- init = false,

@@ -5,11 +5,11 @@
 return {
   "p00f/clangd_extensions.nvim",
   lazy = true,
-  opts = {
-    inlay_hints = {
+  opts = function(_, opts)
+    opts.inlay_hints = {
       parameter_hints_prefix = " ",
       other_hints_prefix = " ",
       highlight = "LspInlayHint",
-    },
-  },
+    }
+  end,
 }
