@@ -72,6 +72,10 @@ return {
         ["<Leader><Leader>r"] = { "<Cmd>cd %:p:h<CR>", desc = "CD File Path" },
         ["<Leader><Leader>d"] = { "<Cmd>pwd<CR>", desc = "Show Current Directory" },
         ["<Leader>w"] = false, -- disable save; C-S already does force save
+        -- ["<Leader><Leader>c"] = {
+        --   "<Cmd>Neotree reveal_file=<cfile> reveal_force_cwd<cr>",
+        --   desc = "Reveal Cursor File",
+        -- },
 
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command

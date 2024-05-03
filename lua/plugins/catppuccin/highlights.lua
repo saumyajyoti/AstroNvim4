@@ -27,6 +27,8 @@ return {
       -- Blamer = { fg = colors.overlay1, bg = colors.base },
       -- NvimTreeIndentMarker = { link = "IndentBlanklineChar" },
       -- NvimTreeExecFile = { fg = colors.text },
+      LspInlayHint = { fg = colors.overlay1, bg = "#282d28", style = { "italic" } },
+      Delimiter = { fg = colors.subtext1 },
       String = { fg = colors.yellow },
       Function = { fg = colors.green },
       ["@function.macro"] = { fg = colors.mauve },

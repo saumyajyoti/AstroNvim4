@@ -74,4 +74,5 @@ return {
   { import = "astrocommunity.scrolling.mini-animate" },
   { import = "astrocommunity.project.project-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
+  { import = "astrocommunity.color.tint-nvim" },
 }

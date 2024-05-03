@@ -313,4 +313,24 @@ return {
       ),
     },
   },
+  {
+    "rolv-apneseth/tfm.nvim",
+    lazy = false,
+    opts = {
+      -- default_mappings = false,
+      enable_cmds = true,
+    },
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>y"] = { ":Tfm<CR>", desc = "󰝰 Yazi File Manager" },
+            },
+          },
+        },
+      },
+    },
+  },
 }
