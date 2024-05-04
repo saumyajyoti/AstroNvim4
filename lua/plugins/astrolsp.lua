@@ -2,6 +2,9 @@
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
+
+-- if true then return {} end
+
 local function custom_attach(client, bufnr)
   require("lsp_signature").on_attach {
     bind = true,

@@ -333,4 +333,68 @@ return {
       },
     },
   },
+  {
+    "lewis6991/hover.nvim",
+    opts = {
+      init = function()
+        -- Require providers
+        require "hover.providers.lsp"
+        require "hover.providers.gh"
+        -- require('hover.providers.jira')
+        require "hover.providers.man"
+        require "hover.providers.dictionary"
+      end,
+      preview_opts = {
+        border = "single",
+        focusable = true,
+        focus = true,
+      },
+      -- Whether the contents of a currently open hover window should be moved
+      -- to a :h preview-window when pressing the hover keymap.
+      preview_window = true,
+      title = true,
+      mouse_providers = {
+        "LSP",
+      },
+      mouse_delay = 1000,
+    },
+    config = function(lazy, opts)
+      require("hover").setup(opts)
+      -- Setup keymaps
+      -- vim.keymap.set("n", "K", hover.hover, { desc = "hover.nvim" })
+      -- vim.keymap.set("n", "gh", hover.hover_select, { desc = "hover.nvim (select)" })
+      -- vim.keymap.set(
+      --   "n",
+      --   "<C-p>",
+      --   function() hover.hover_switch("previous", hover.Options) end,
+      --   { desc = "hover.nvim (previous source)" }
+      -- )
+      -- vim.keymap.set(
+      --   "n",
+      --   "<C-n>",
+      --   function() hover.hover_switch("next", hover.Options) end,
+      --   { desc = "hover.nvim (next source)" }
+      -- )
+      -- Mouse support
+      -- vim.keymap.set("n", "<MouseMove>", require("hover").hover_mouse, { desc = "hover.nvim (mouse)" })
+      vim.o.mousemoveevent = true
+    end,
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["gh"] = { desc = " Hover" },
+              ["ghh"] = { function() require("hover").hover() end, desc = "Hover" },
+              ["ghs"] = { function() require("hover").hover_select() end, desc = "Hover Select" },
+              ["ghp"] = { function() require("hover").hover_switch "previous" end, desc = "Hover Previous" },
+              ["ghn"] = { function() require("hover").hover_switch "next" end, desc = "Hover Next" },
+              ["<MouseMove>"] = { function() require("hover").hover_mouse() end, desc = "Hover Mouse" },
+            },
+          },
+        },
+      },
+    },
+  },
 }
