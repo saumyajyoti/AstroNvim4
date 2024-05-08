@@ -77,4 +77,5 @@ return {
   { import = "astrocommunity.color.tint-nvim" },
   { import = "astrocommunity.git.fugit2-nvim" },
   -- { import = "astrocommunity.scrolling.nvim-scrollbar" },
+  { import = "astrocommunity.editing-support.nvim-context-vt" },
 }
