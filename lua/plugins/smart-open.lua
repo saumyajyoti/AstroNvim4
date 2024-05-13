@@ -1,3 +1,5 @@
+if true then return {} end
+
 local get_opts = function()
   return {
     cwd_only = true,

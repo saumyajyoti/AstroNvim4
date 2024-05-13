@@ -12,6 +12,7 @@ return {
     "tsakirist/telescope-lazy.nvim",
     "fdschmidt93/telescope-egrepify.nvim",
     { "2kabhishek/nerdy.nvim", cmd = "Nerdy" },
+    "nvim-telescope/telescope-frecency.nvim",
 
     {
       "AstroNvim/astrocore",
@@ -118,7 +119,8 @@ return {
             -- },
             -- search highlight groups
             ["<Leader>fH"] = { "<Cmd>Telescope highlights<cr>", desc = "Highlight groups" },
-            -- ["<Leader>fp"] = { "<Cmd>Telescope lazy_plugins<cr>", desc = "Plugins configurations" },
+            ["<Leader>fp"] = { "<Cmd>Telescope lazy<cr>", desc = "Plugins configurations" },
+            ["<Leader>fs"] = { "<Cmd>Telescope frecency<cr>", desc = "Frecent File Search" },
           },
         },
       },
@@ -141,6 +143,7 @@ return {
     telescope.load_extension "lazy"
     telescope.load_extension "egrepify"
     telescope.load_extension "nerdy"
+    telescope.load_extension "frecency"
     -- telescope.load_extension "smart_open"
     -- telescope.load_extension "color_names"
     -- telescope.load_extension "find_files"
