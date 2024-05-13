@@ -12,19 +12,7 @@ return {
     "tsakirist/telescope-lazy.nvim",
     "fdschmidt93/telescope-egrepify.nvim",
     { "2kabhishek/nerdy.nvim", cmd = "Nerdy" },
-    -- "nat-418/telescope-color-names.nvim",
 
-    -- {
-    --   "polirritmico/telescope-lazy-plugins.nvim",
-    --   opts = {
-    --     extensions = {
-    --       lazy_plugins = {
-    --         lazy_config = vim.fn.stdpath "config" .. "/lua/lazy_setup.lua", -- path to the file containing the lazy opts and setup() call.
-    --         lazy_spec_table = vim.fn.stdpath "config" .. "/lua/lazy_setup.lua",
-    --       },
-    --     },
-    --   },
-    -- },
     {
       "AstroNvim/astrocore",
       opts = {
@@ -153,6 +141,7 @@ return {
     telescope.load_extension "lazy"
     telescope.load_extension "egrepify"
     telescope.load_extension "nerdy"
+    -- telescope.load_extension "smart_open"
     -- telescope.load_extension "color_names"
     -- telescope.load_extension "find_files"
     -- telescope.load_extension "lazy_plugins"

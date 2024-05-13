@@ -5,10 +5,6 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  -- { import = "astrocommunity.pack.lua" },
-  -- { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
-  -- { import = "astrocommunity.bars-and-lines.lualine-nvim" },
-  -- import/override with your plugins folder
   --
   -- Files
   --
@@ -16,7 +12,6 @@ return {
   { import = "astrocommunity.project.nvim-spectre" },
   { import = "astrocommunity.debugging.nvim-bqf" },
   { import = "astrocommunity.test.neotest" },
-  -- { import = "astrocommunity.syntax.vim-cool" },
   --
   -- MD
   --
@@ -76,6 +71,6 @@ return {
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   { import = "astrocommunity.color.tint-nvim" },
   { import = "astrocommunity.git.fugit2-nvim" },
-  -- { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.editing-support.nvim-context-vt" },
+  { import = "astrocommunity.editing-support.cutlass-nvim" },
 }
