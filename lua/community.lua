@@ -73,4 +73,5 @@ return {
   { import = "astrocommunity.git.fugit2-nvim" },
   { import = "astrocommunity.editing-support.nvim-context-vt" },
   { import = "astrocommunity.editing-support.cutlass-nvim" },
+  { import = "astrocommunity.bars-and-lines.vim-illuminate" },
 }
