@@ -71,7 +71,7 @@ return {
         filetypes = { "ahk", "autohotkey", "ah2" },
         init_options = {
           locale = "en-us",
-          InterpreterPath = "C:/Program Files/AutoHotkey/v2/AutoHotkey.exe",
+          InterpreterPath = vim.fn.expand "$HOME/scoop/apps/autohotkey/current/v2/AutoHotkey.exe",
           -- Same as initializationOptions for Sublime Text4, convert json literal to lua dictionary literal
         },
         single_file_support = true,
