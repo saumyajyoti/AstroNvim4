@@ -14,8 +14,8 @@ return {
         -- "csharp_ls",
         -- "cmake",
         -- add more arguments for adding more language servers
-      })
-    end,
+      },
+    },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
@@ -28,8 +28,8 @@ return {
         "cpplint",
         "stylua",
         -- add more arguments for adding more null-ls sources
-      })
-    end,
+      },
+    },
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
@@ -39,7 +39,7 @@ return {
       require("astrocore").list_insert_unique(opts.ensure_installed, {
         -- "python",
         -- add more arguments for adding more debuggers
-      })
-    end,
+      },
+    },
   },
 }
