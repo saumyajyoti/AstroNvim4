@@ -31,6 +31,11 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.cs" },
+  { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.go" },
+
   --
   -- editing
   --
@@ -74,4 +79,19 @@ return {
   { import = "astrocommunity.editing-support.nvim-context-vt" },
   { import = "astrocommunity.editing-support.cutlass-nvim" },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
+  { import = "astrocommunity.editing-support.bigfile-nvim" },
+  { import = "astrocommunity.neovim-lua-development.lazydev-nvim" },
+  {
+    "folke/lazydev.nvim",
+    dependencies = {
+      { "justinsgithub/wezterm-types", lazy = true },
+    },
+    opts = function(_, opts)
+      require("astrocore").list_insert_unique(opts.library, {
+        -- Load the wezterm types when the `wezterm` module is required
+        -- Needs `justinsgithub/wezterm-types` to be installed
+        { path = "wezterm-types", mods = { "wezterm" } },
+      })
+    end,
+  },
 }
