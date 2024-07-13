@@ -13,7 +13,7 @@ return {
     "fdschmidt93/telescope-egrepify.nvim",
     { "2kabhishek/nerdy.nvim", cmd = "Nerdy" },
     "nvim-telescope/telescope-frecency.nvim",
-
+    "GianniBYoung/chezmoi-telescope.nvim",
     {
       "AstroNvim/astrocore",
       opts = {
@@ -144,6 +144,7 @@ return {
     telescope.load_extension "egrepify"
     telescope.load_extension "nerdy"
     telescope.load_extension "frecency"
+    telescope.load_extension "chezmoi"
     -- telescope.load_extension "smart_open"
     -- telescope.load_extension "color_names"
     -- telescope.load_extension "find_files"

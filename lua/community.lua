@@ -51,6 +51,8 @@ return {
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.completion.cmp-cmdline" },
+  { import = "astrocommunity.completion.cmp-git" },
+
   { import = "astrocommunity.search.nvim-hlslens" },
   {
     "kevinhwang91/nvim-hlslens",
@@ -75,7 +77,11 @@ return {
   { import = "astrocommunity.project.project-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   { import = "astrocommunity.color.tint-nvim" },
-  { import = "astrocommunity.git.fugit2-nvim" },
+  -- { import = "astrocommunity.git.fugit2-nvim" },
+  { import = "astrocommunity.git.diffview-nvim" },
+  {import = "astrocommunity.git.openingh-nvim"},
+  {import = "astrocommunity.git.octo-nvim"},
+  -- { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.editing-support.nvim-context-vt" },
   { import = "astrocommunity.editing-support.cutlass-nvim" },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
@@ -94,4 +100,5 @@ return {
       })
     end,
   },
+  { import = "astrocommunity.editing-support.conform-nvim" },
 }
