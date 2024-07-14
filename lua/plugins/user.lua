@@ -92,7 +92,7 @@ return {
           operators = true, -- adds help for operators like d, y, ...
           motions = true, -- adds help for motions
           text_objects = true, -- help for text objects triggered after entering an operator
-          windows = false, -- default bindings on <c-w>
+          windows = true, -- default bindings on <c-w>
           nav = true, -- misc bindings to work with windows
           z = true, -- bindings for folds, spelling and others prefixed with z
           g = true, -- bindings for prefixed with g
@@ -109,6 +109,70 @@ return {
     end,
   },
   {
+
+    "mrjones2014/legendary.nvim",
+    -- since legendary.nvim handles all your keymaps/commands,
+    -- its recommended to load legendary.nvim before other plugins
+    priority = 10000,
+    lazy = false,
+    -- sqlite is only needed if you want to use frecency sorting
+    -- dependencies = { "kkharji/sqlite.lua" },
+    -- init = function()
+    --   require("my.utils.lsp").on_attach(function(client, bufnr)
+    --     if vim.tbl_contains(lsp_bound_buffer_ids, bufnr) then return end
+    --     -- setup LSP-specific keymaps
+    --     require("legendary").keymaps(require("my.legendary.keymap").lsp_keymaps(bufnr))
+    --     require("legendary").commands(require("my.legendary.commands").lsp_commands(bufnr, client.name))
+    --     table.insert(lsp_bound_buffer_ids, bufnr)
+    --   end)
+    -- end,
+    opts = {
+      -- keymaps = require("my.legendary.keymap").default_keymaps,
+      -- commands = require("my.legendary.commands").default_commands,
+      -- autocmds = require("my.legendary.autocmds").default_autocmds,
+      -- funcs = require("my.legendary.functions").default_functions,
+      col_separator_char = " ",
+      default_opts = {
+        keymaps = { silent = true, noremap = true },
+      },
+
+      extensions = {
+        -- nvim_tree = true,
+        which_key = { auto_register = true },
+        lazy_nvim = true,
+        smart_splits = {
+          mods = {
+            move = "<C>",
+            resize = "<M>",
+            swap = {
+              prefix = "<C-w>s",
+              mod = "",
+            },
+          },
+        },
+        op_nvim = false,
+        diffview = true,
+      },
+    },
+    --     opts = {
+    --       lazy_nvim = {     auto_register = true },
+    -- which_key = {
+    --   -- Automatically add which-key tables to legendary
+    --   -- see ./doc/WHICH_KEY.md for more details
+    --   auto_register = true,
+    --   -- you can put which-key.nvim tables here,
+    --   -- or alternatively have them auto-register,
+    --   -- see ./doc/WHICH_KEY.md
+    --    },
+    --  extensions = {
+    --   nvim_tree = false,
+    --   smart_splits = true,
+    --   op_nvim = false,
+    --   diffview = true,
+    -- },
+    --     },
+  },
+  {
     "mrjones2014/smart-splits.nvim",
     lazy = false,
     dependencies = {
@@ -117,79 +181,79 @@ return {
         opts = {
           mappings = {
             n = {
-              ["<c-w>"] = {
-                name = "Window",
-                -- s = "Split window",
-                -- v = "Split window vertically",
-                w = "Switch windows",
-                q = "Quit a window",
-                o = "Close all other windows",
-                T = "Break out into a new tab",
-                ["-"] = "Decrease height",
-                ["+"] = "Increase height",
-                ["<lt>"] = "Decrease width",
-                [">"] = "Increase width",
-                ["|"] = "Max out the width",
-                ["_"] = "Max out the height",
-                ["="] = "Equally high and wide",
-                -- h = "Go to the left window",
-                -- l = "Go to the right window",
-                -- k = "Go to the up window",
-                -- j = "Go to the down window",
-                s = {
-                  name = "Smart Swap",
-                  x = "Swap current with next",
-                  -- ["h"] = {
-                  --   function() require("smart-splits").swap_buf_left() end,
-                  --   desc = "Smart Swap Buffer Left",
-                  -- },
-                },
-              },
+              -- ["<c-w>"] = {
+              --   name = "Window",
+              --   -- s = "Split window",
+              --   -- v = "Split window vertically",
+              --   w = "Switch windows",
+              --   q = "Quit a window",
+              --   o = "Close all other windows",
+              --   T = "Break out into a new tab",
+              --   ["-"] = "Decrease height",
+              --   ["+"] = "Increase height",
+              --   ["<lt>"] = "Decrease width",
+              --   [">"] = "Increase width",
+              --   ["|"] = "Max out the width",
+              --   ["_"] = "Max out the height",
+              --   ["="] = "Equally high and wide",
+              --   -- h = "Go to the left window",
+              --   -- l = "Go to the right window",
+              --   -- k = "Go to the up window",
+              --   -- j = "Go to the down window",
+              --   s = {
+              --     name = "Smart Swap",
+              --     x = "Swap current with next",
+              --     -- ["h"] = {
+              --     --   function() require("smart-splits").swap_buf_left() end,
+              --     --   desc = "Smart Swap Buffer Left",
+              --     -- },
+              --   },
+              -- },
 
               -- disable default mapping
-              ["<A-h>"] = {
-                function() require("smart-splits").resize_left() end,
-                desc = "Smart Resize Left",
-              },
-              ["<A-j>"] = { function() require("smart-splits").resize_down() end, desc = "Smart Resize Down" },
-              ["<A-k>"] = { function() require("smart-splits").resize_up() end, desc = "Smart Resize Up" },
-              ["<A-l>"] = { function() require("smart-splits").resize_right() end, desc = "Smart Resize Right" },
-              -- moving between splits
-              ["<C-h>"] = {
-                function() require("smart-splits").move_cursor_left() end,
-                desc = "Smart Move Cursor Left",
-              },
-              ["<C-j>"] = {
-                function() require("smart-splits").move_cursor_down() end,
-                desc = "Smart Move Cursor Down",
-              },
-              ["<C-k>"] = { function() require("smart-splits").move_cursor_up() end, desc = "Smart Move Cursor Up" },
-              ["<C-l>"] = {
-                function() require("smart-splits").move_cursor_right() end,
-                desc = "Smart Move Cursor Right",
-              },
+              -- ["<A-h>"] = {
+              --   function() require("smart-splits").resize_left() end,
+              --   desc = "Smart Resize Left",
+              -- },
+              -- ["<A-j>"] = { function() require("smart-splits").resize_down() end, desc = "Smart Resize Down" },
+              -- ["<A-k>"] = { function() require("smart-splits").resize_up() end, desc = "Smart Resize Up" },
+              -- ["<A-l>"] = { function() require("smart-splits").resize_right() end, desc = "Smart Resize Right" },
+              -- -- moving between splits
+              -- ["<C-h>"] = {
+              --   function() require("smart-splits").move_cursor_left() end,
+              --   desc = "Smart Move Cursor Left",
+              -- },
+              -- ["<C-j>"] = {
+              --   function() require("smart-splits").move_cursor_down() end,
+              --   desc = "Smart Move Cursor Down",
+              -- },
+              -- ["<C-k>"] = { function() require("smart-splits").move_cursor_up() end, desc = "Smart Move Cursor Up" },
+              -- ["<C-l>"] = {
+              --   function() require("smart-splits").move_cursor_right() end,
+              --   desc = "Smart Move Cursor Right",
+              -- },
               ["<C-\\>"] = {
                 function() require("smart-splits").move_cursor_previous() end,
                 desc = "Smart Move Cursor Previous",
               },
               -- swapping buffers between windows
-              ["<C-w>sh"] = {
-                function() require("smart-splits").swap_buf_left() end,
-                desc = "Smart Swap Buffer Left",
-              },
-
-              ["<C-w>sj"] = {
-                function() require("smart-splits").swap_buf_down() end,
-                desc = "Smart Swap Buffer Down",
-              },
-              ["<C-w>sk"] = {
-                function() require("smart-splits").swap_buf_up() end,
-                desc = "Smart Swap Buffer Up",
-              },
-              ["<C-w>sl"] = {
-                function() require("smart-splits").swap_buf_right() end,
-                desc = "Smart Swap Buffer Right",
-              },
+              -- ["<C-w>sh"] = {
+              --   function() require("smart-splits").swap_buf_left() end,
+              --   desc = "Smart Swap Buffer Left",
+              -- },
+              --
+              -- ["<C-w>sj"] = {
+              --   function() require("smart-splits").swap_buf_down() end,
+              --   desc = "Smart Swap Buffer Down",
+              -- },
+              -- ["<C-w>sk"] = {
+              --   function() require("smart-splits").swap_buf_up() end,
+              --   desc = "Smart Swap Buffer Up",
+              -- },
+              -- ["<C-w>sl"] = {
+              --   function() require("smart-splits").swap_buf_right() end,
+              --   desc = "Smart Swap Buffer Right",
+              -- },
               ["<C-w>s/"] = {
                 function() require("smart-splits").swap_buf_previous() end,
                 desc = "Smart Swap Buffer Previous",
@@ -410,7 +474,10 @@ return {
     "tzachar/highlight-undo.nvim",
   },
   {
-    "tpope/vim-fugitive",
+    "tpope/vim-rhubarb",
+    dependencies = {
+      "tpope/vim-fugitive",
+    },
   },
   -- {
   --   "SuperBo/fugit2.nvim",

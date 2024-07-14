@@ -52,6 +52,7 @@ return {
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.cmp-git" },
+  { import = "astrocommunity.completion.cmp-nerdfont" },
 
   { import = "astrocommunity.search.nvim-hlslens" },
   {
@@ -70,7 +71,6 @@ return {
       }
     end,
   },
-  { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.scrolling.mini-animate" },
@@ -79,8 +79,8 @@ return {
   { import = "astrocommunity.color.tint-nvim" },
   -- { import = "astrocommunity.git.fugit2-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
-  {import = "astrocommunity.git.openingh-nvim"},
-  {import = "astrocommunity.git.octo-nvim"},
+  { import = "astrocommunity.git.openingh-nvim" },
+  { import = "astrocommunity.git.octo-nvim" },
   -- { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.editing-support.nvim-context-vt" },
   { import = "astrocommunity.editing-support.cutlass-nvim" },
