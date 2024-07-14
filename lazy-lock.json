@@ -1,5 +1,5 @@
 {
-  "AstroNvim": { "branch": "main", "commit": "ea430b823def867a6a1687dbf38c81e38c662f2b" },
+  "AstroNvim": { "branch": "main", "commit": "7b0a5928650013a1bdd732257f1919d5aff5f025" },
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "LuaSnip": { "branch": "master", "commit": "ce0a05ab4e2839e1c48d072c5236cce846a387bc" },
   "SchemaStore.nvim": { "branch": "main", "commit": "37274739232b6a888be7c6ca5f1a2d58510a9a84" },
@@ -112,7 +112,7 @@
   "telescope-egrepify.nvim": { "branch": "master", "commit": "a30396791c3f67b8f34d42dfc26db2f868ae9154" },
   "telescope-everything.nvim": { "branch": "main", "commit": "d8663788a152741f669d0a295b06401047e30352" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "a7ab9a957b17199183388c6f357d614fcaa508e5" },
-  "telescope-frecency.nvim": { "branch": "master", "commit": "880e89eadbc92e9da27c85dce0b9535dcef9b057" },
+  "telescope-frecency.nvim": { "branch": "master", "commit": "be5add7248d32262716a0078b5798e6729b8b7c3" },
   "telescope-glyph.nvim": { "branch": "master", "commit": "f63f01e129e71cc25b79637610674bbf0be5ce9d" },
   "telescope-lazy.nvim": { "branch": "main", "commit": "08eb9d05455cabc126e9b850470205d4f3ac7caf" },
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "8ad632f793fd437865f99af5684f78300dac93fb" },
@@ -137,5 +137,5 @@
   "vim-visual-multi": { "branch": "master", "commit": "38b0e8d94a5499ccc17d6159763d32c79f53417b" },
   "wezterm-types": { "branch": "main", "commit": "1518752906ba3fac0060d9efab6e4d3ec15d4b5a" },
   "wezterm.nvim": { "branch": "main", "commit": "f73bba23ab4becd146fa2d0a3a16a84b987eeaca" },
-  "which-key.nvim": { "branch": "main", "commit": "4d5b8959fd2a4df065ff76ccb39019aaa70cb0dc" }
+  "which-key.nvim": { "branch": "main", "commit": "2e4f7afa4aa444483d8ade5989d524c7f4131368" }
 }

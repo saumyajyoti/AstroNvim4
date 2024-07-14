@@ -141,6 +141,8 @@ return {
         which_key = { auto_register = true },
         lazy_nvim = true,
         smart_splits = {
+          -- prev_win = "<C-\\>",
+          -- directions = { "h", "j", "k", "l" },
           mods = {
             move = "<C>",
             resize = "<M>",
@@ -232,10 +234,10 @@ return {
               --   function() require("smart-splits").move_cursor_right() end,
               --   desc = "Smart Move Cursor Right",
               -- },
-              ["<C-\\>"] = {
-                function() require("smart-splits").move_cursor_previous() end,
-                desc = "Smart Move Cursor Previous",
-              },
+              -- ["<C-\\>"] = {
+              --   function() require("smart-splits").move_cursor_previous() end,
+              --   desc = "Smart Move Cursor Previous",
+              -- },
               -- swapping buffers between windows
               -- ["<C-w>sh"] = {
               --   function() require("smart-splits").swap_buf_left() end,
@@ -311,14 +313,6 @@ return {
       )
     end,
   },
-  -- {
-  --   "folke/which-key.nvim",
-  --   opts = {
-  --     icons = {
-  --       separator = " ", -- "➜ ",
-  --     },
-  --   },
-  -- },
   {
     "rcarriga/nvim-notify",
     -- init = false,
