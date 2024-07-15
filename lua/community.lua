@@ -12,6 +12,21 @@ return {
   { import = "astrocommunity.project.nvim-spectre" },
   { import = "astrocommunity.debugging.nvim-bqf" },
   { import = "astrocommunity.test.neotest" },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "alfaix/neotest-gtest",
+      -- your other adapters here
+    },
+    opts = {
+      adapters = {
+        "neotest-gtest",
+      },
+    },
+  },
   --
   -- MD
   --
