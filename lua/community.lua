@@ -50,6 +50,8 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.go" },
+  -- { import = "astrocommunity.icon.mini-icons" },
+  { import = "astrocommunity.pack.chezmoi" },
 
   --
   -- editing
@@ -75,8 +77,14 @@ return {
     opts = function(_, opts) opts.calm_down = true end,
   },
   { import = "astrocommunity.utility.noice-nvim" },
+  { import = "astrocommunity.editing-support.telescope-undo-nvim" },
+  { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
+  { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
+  { import = "astrocommunity.utility.telescope-live-grep-args-nvim" },
+  { import = "astrocommunity.utility.telescope-lazy-nvim" },
   { import = "astrocommunity.code-runner.overseer-nvim" },
   { import = "astrocommunity.lsp.inc-rename-nvim" },
+  { import = "astrocommunity.lsp.lspsaga-nvim" },
   { import = "astrocommunity.utility.nvim-toggler" },
   {
     "nguyenvukhang/nvim-toggler",
