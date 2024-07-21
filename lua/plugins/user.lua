@@ -464,4 +464,9 @@ return {
       "tpope/vim-fugitive",
     },
   },
+  {
+    "mhinz/vim-grepper",
+    lazy = true,
+    cmd = { "Grepper", "<plug>(GrepperOperator)" },
+  },
 }

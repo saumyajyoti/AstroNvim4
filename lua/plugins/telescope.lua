@@ -114,6 +114,10 @@ return {
                     desc = "Smart Find Files",
                   },
                   -- search highlight groups
+                  ["<Leader>fE"] = {
+                    function() require("telescope").extensions.egrepify.egrepify {} end,
+                    desc = "eGrepify Search",
+                  },
                   ["<Leader>fH"] = { "<Cmd>Telescope highlights<cr>", desc = "Highlight groups" },
                   ["<Leader>fp"] = { "<Cmd>Telescope lazy<cr>", desc = "Plugins configurations" },
                   ["<Leader>fs"] = { "<Cmd>Telescope frecency<cr>", desc = "Frecent File Search" },
