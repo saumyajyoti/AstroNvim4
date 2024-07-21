@@ -9,7 +9,7 @@ return {
   -- Files
   --
   { import = "astrocommunity.file-explorer.oil-nvim" },
-  { import = "astrocommunity.project.nvim-spectre" },
+  { import = "astrocommunity.search.nvim-spectre" },
   { import = "astrocommunity.debugging.nvim-bqf" },
   { import = "astrocommunity.test.neotest" },
   {
@@ -96,7 +96,12 @@ return {
   },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
-  { import = "astrocommunity.scrolling.mini-animate" },
+  { import = "astrocommunity.scrolling.neoscroll-nvim" },
+  {
+    "karb94/neoscroll.nvim",
+    opts = function(_, opts) opts.easing = "quadratic" end,
+  },
+  -- { import = "astrocommunity.scrolling.vim-smoothie" },
   { import = "astrocommunity.project.project-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   { import = "astrocommunity.color.tint-nvim" },
@@ -124,4 +129,7 @@ return {
     end,
   },
   { import = "astrocommunity.editing-support.conform-nvim" },
+  -- { import = "astrocommunity.color.modes-nvim" },
+  { import = "astrocommunity.color.nvim-highlight-colors" },
+  -- { import = "astrocommunity.recipes.auto-session-restore" },
 }

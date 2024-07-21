@@ -62,6 +62,8 @@ return {
       startify.button("q", "󰅚  Quit", "<cmd>qa<CR>"),
       -- startify.button("Q", "󰅚  Quit without saving", "<cmd>qa!<CR>"),
       startify.button("R", "  Reload", "<cmd>source $MYVIMRC<CR>"),
+      startify.button("LDR Sl", "  Reload Last Session"),
+
       -- startify.button("S", "󰅚  Save", "<cmd>wa<CR>"),
       -- startify.button("W", "󰅚  Save All", "<cmd>wa<CR>"),
       -- startify.button("E", "󰅚  Exit", "<cmd>qa<CR>"),
