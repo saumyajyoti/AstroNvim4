@@ -2,7 +2,7 @@
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
-
+local wk = require "which-key"
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -72,10 +72,10 @@ return {
 
         ["<leader>bx"] = { "<Cmd>close<CR>", desc = "Close Pane" },
 
-        ["<Leader><Leader>"] = { desc = " Workspace" },
-        ["<Leader><Leader>r"] = { "<Cmd>cd %:p:h<CR>", desc = "CD File Path" },
-        ["<Leader><Leader>d"] = { "<Cmd>pwd<CR>", desc = "Show Current Directory" },
-        ["<Leader>w"] = false, -- disable save; C-S already does force save
+        -- ["<Leader><Leader>"] = { desc = " Workspace" },
+        ["<Leader>wr"] = { "<Cmd>cd %:p:h<CR>", desc = "CD File Path" },
+        ["<Leader>wd"] = { "<Cmd>pwd<CR>", desc = "Show Current Directory"},
+        ["<Leader>w"] = { desc = " Workspace" }, -- false, -- disable save; C-S already does force save
         -- ["<Leader><Leader>c"] = {
         --   "<Cmd>Neotree reveal_file=<cfile> reveal_force_cwd<cr>",
         --   desc = "Reveal Cursor File",

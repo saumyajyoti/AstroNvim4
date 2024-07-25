@@ -4,6 +4,7 @@ return {
   { "Verf/telescope-everything.nvim", lazy = true },
   { "ghassan0/telescope-glyph.nvim", lazy = true },
   { "2kabhishek/nerdy.nvim", cmd = "Nerdy", lazy = true },
+  { "cljoly/telescope-repo.nvim", lazy = true },
   {
     "nvim-telescope/telescope-frecency.nvim",
     lazy = true,
@@ -19,6 +20,7 @@ return {
           "ghassan0/telescope-glyph.nvim",
           "fdschmidt93/telescope-egrepify.nvim",
           "2kabhishek/nerdy.nvim",
+          "cljoly/telescope-repo.nvim",
           "nvim-telescope/telescope-frecency.nvim",
           {
             "AstroNvim/astrocore",
@@ -143,6 +145,7 @@ return {
           telescope.load_extension "nerdy"
           telescope.load_extension "frecency"
           telescope.load_extension "chezmoi"
+          telescope.load_extension "repo"
         end,
       },
     },

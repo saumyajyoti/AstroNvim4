@@ -9,6 +9,7 @@ return {
   -- Files
   --
   { import = "astrocommunity.file-explorer.oil-nvim" },
+  { import = "astrocommunity.file-explorer.mini-files" },
   { import = "astrocommunity.search.nvim-spectre" },
   { import = "astrocommunity.debugging.nvim-bqf" },
   { import = "astrocommunity.test.neotest" },
@@ -132,4 +133,5 @@ return {
   -- { import = "astrocommunity.color.modes-nvim" },
   { import = "astrocommunity.color.nvim-highlight-colors" },
   -- { import = "astrocommunity.recipes.auto-session-restore" },
+  { import = "astrocommunity.motion.grapple-nvim" },
 }

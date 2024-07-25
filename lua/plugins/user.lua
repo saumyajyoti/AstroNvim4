@@ -467,6 +467,7 @@ return {
   {
     "mhinz/vim-grepper",
     lazy = true,
-    cmd = { "Grepper", "<plug>(GrepperOperator)" },
+    cmd = "Grepper",
+    -- "<plug>(GrepperOperator)" },
   },
 }
