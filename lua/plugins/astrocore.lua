@@ -74,7 +74,7 @@ return {
 
         -- ["<Leader><Leader>"] = { desc = " Workspace" },
         ["<Leader>wr"] = { "<Cmd>cd %:p:h<CR>", desc = "CD File Path" },
-        ["<Leader>wd"] = { "<Cmd>pwd<CR>", desc = "Show Current Directory"},
+        ["<Leader>wd"] = { "<Cmd>pwd<CR>", desc = "Show Current Directory" },
         ["<Leader>w"] = { desc = " Workspace" }, -- false, -- disable save; C-S already does force save
         -- ["<Leader><Leader>c"] = {
         --   "<Cmd>Neotree reveal_file=<cfile> reveal_force_cwd<cr>",

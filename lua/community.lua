@@ -106,7 +106,7 @@ return {
   { import = "astrocommunity.project.project-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   { import = "astrocommunity.color.tint-nvim" },
-  -- { import = "astrocommunity.git.fugit2-nvim" },
+  { import = "astrocommunity.git.fugit2-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.openingh-nvim" },
   { import = "astrocommunity.git.octo-nvim" },

@@ -9,6 +9,7 @@ require("lazy").setup({
       icons_enabled = true, -- Set to false to disable icons (if no Nerd Font is available)
       pin_plugins = nil, -- Default will pin plugins when tracking `version` of AstroNvim, set to true/false to override
       update_notifications = true, -- Enable/disable notification about running `:Lazy update` twice to update pinned plugins
+      -- rocks = { enabled = false },
     },
   },
   { import = "community" },
@@ -62,4 +63,16 @@ require("lazy").setup({
       },
     },
   },
+  pkg = {
+    enabled = true,
+    cache = vim.fn.stdpath "state" .. "/lazy/pkg-cache.lua",
+    versions = true, -- Honor versions in pkg sources
+    -- the first package source that is found for a plugin will be used.
+    sources = {
+      "lazy",
+      -- "rockspec",
+      "packspec",
+    },
+  },
+  -- { rocks = { enabled = false } },
 } --[[@as LazyConfig]])
