@@ -11,7 +11,8 @@ return {
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.file-explorer.mini-files" },
   { import = "astrocommunity.search.nvim-spectre" },
-  { import = "astrocommunity.debugging.nvim-bqf" },
+  { import = "astrocommunity.search.grug-far-nvim" },
+  { import = "astrocommunity.quickfix.nvim-bqf" },
   { import = "astrocommunity.test.neotest" },
   {
     "nvim-neotest/neotest",
@@ -110,6 +111,8 @@ return {
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.openingh-nvim" },
   { import = "astrocommunity.git.octo-nvim" },
+  { import = "astrocommunity.git.gitlinker-nvim" },
+
   -- { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.editing-support.nvim-context-vt" },
   { import = "astrocommunity.editing-support.cutlass-nvim" },

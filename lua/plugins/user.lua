@@ -371,23 +371,58 @@ return {
       ),
     },
   },
+  -- {
+  --   "rolv-apneseth/tfm.nvim",
+  --   lazy = false,
+  --   opts = {
+  --     -- default_mappings = false,
+  --     enable_cmds = true,
+  --   },
+  --   dependencies = {
+  --     {
+  --       "AstroNvim/astrocore",
+  --       opts = {
+  --         mappings = {
+  --           n = {
+  --             ["<Leader>y"] = { ":Tfm<CR>", desc = "󰝰 Yazi File Manager" },
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
+  ---@type LazySpec
   {
-    "rolv-apneseth/tfm.nvim",
-    lazy = false,
-    opts = {
-      -- default_mappings = false,
-      enable_cmds = true,
-    },
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
     dependencies = {
       {
         "AstroNvim/astrocore",
         opts = {
           mappings = {
             n = {
-              ["<Leader>y"] = { ":Tfm<CR>", desc = "󰝰 Yazi File Manager" },
+              ["<Leader>y"] = { "<cmd>Yazi<cr>", desc = "󰝰 Yazi File" },
+              ["<Leader>Y"] = { "<cmd>Yazi cwd<cr>", desc = "󰝰 Yazi Work Directory" },
+              ["<Leader><Up>"] = { "<cmd>Yazi toggle<cr>", desc = "󰝰 Yazi Resume" },
             },
           },
         },
+      },
+    },
+
+    ---@type YaziConfig
+    opts = {
+      -- if you want to open yazi instead of netrw, see below for more info
+      open_for_directories = false,
+      -- the transparency of the yazi floating window (0-100). See :h winblend
+      yazi_floating_window_winblend = 10,
+      -- enable these if you are using the latest version of yazi
+      use_ya_for_events_reading = true,
+      use_yazi_client_id_flag = true,
+      -- highlight buffers in the same directory as the hovered buffer
+      highlight_hovered_buffers_in_same_directory = true,
+      keymaps = {
+        show_help = "<f1>",
       },
     },
   },
