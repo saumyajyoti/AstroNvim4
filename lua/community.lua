@@ -106,7 +106,7 @@ return {
   -- { import = "astrocommunity.scrolling.vim-smoothie" },
   { import = "astrocommunity.project.project-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
-  { import = "astrocommunity.color.tint-nvim" },
+  -- { import = "astrocommunity.color.tint-nvim" },
   { import = "astrocommunity.git.fugit2-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.openingh-nvim" },
@@ -137,4 +137,5 @@ return {
   { import = "astrocommunity.color.nvim-highlight-colors" },
   -- { import = "astrocommunity.recipes.auto-session-restore" },
   { import = "astrocommunity.motion.grapple-nvim" },
+  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 }
