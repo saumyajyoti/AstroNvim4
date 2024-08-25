@@ -36,6 +36,7 @@ return {
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.markdown-and-latex.peek-nvim" },
   { import = "astrocommunity.markdown-and-latex.markmap-nvim" },
+  { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   --
   -- Packs
   --
@@ -85,7 +86,7 @@ return {
   { import = "astrocommunity.utility.telescope-live-grep-args-nvim" },
   { import = "astrocommunity.utility.telescope-lazy-nvim" },
   { import = "astrocommunity.code-runner.overseer-nvim" },
-  { import = "astrocommunity.lsp.inc-rename-nvim" },
+  -- { import = "astrocommunity.lsp.inc-rename-nvim" },
   { import = "astrocommunity.lsp.lspsaga-nvim" },
   { import = "astrocommunity.utility.nvim-toggler" },
   {
@@ -118,6 +119,7 @@ return {
   { import = "astrocommunity.editing-support.cutlass-nvim" },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.editing-support.bigfile-nvim" },
+  { import = "astrocommunity.neovim-lua-development.helpview-nvim" },
   { import = "astrocommunity.neovim-lua-development.lazydev-nvim" },
   {
     "folke/lazydev.nvim",
@@ -138,4 +140,5 @@ return {
   -- { import = "astrocommunity.recipes.auto-session-restore" },
   { import = "astrocommunity.motion.grapple-nvim" },
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+  { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
 }
