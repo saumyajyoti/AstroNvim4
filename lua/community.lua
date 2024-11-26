@@ -36,7 +36,8 @@ return {
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.markdown-and-latex.peek-nvim" },
   { import = "astrocommunity.markdown-and-latex.markmap-nvim" },
-  { import = "astrocommunity.markdown-and-latex.markview-nvim" },
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  -- { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   --
   -- Packs
   --
@@ -69,6 +70,7 @@ return {
 
   -- { import = "astrocommunity.search.sad-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
+  { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.cmp-git" },
@@ -141,4 +143,5 @@ return {
   { import = "astrocommunity.motion.grapple-nvim" },
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
+  -- { import = "astrocommunity.pack.nvchad-ui" },
 }
