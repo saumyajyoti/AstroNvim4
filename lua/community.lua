@@ -141,7 +141,11 @@ return {
   { import = "astrocommunity.color.nvim-highlight-colors" },
   -- { import = "astrocommunity.recipes.auto-session-restore" },
   { import = "astrocommunity.motion.grapple-nvim" },
+  { import = "astrocommunity.motion.flash-nvim" },
+  { import = "astrocommunity.motion.mini-ai" },
+  { import = "astrocommunity.motion.before-nvim" },
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
+  { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
   -- { import = "astrocommunity.pack.nvchad-ui" },
 }
