@@ -1,6 +1,6 @@
 # AstroNvim Config
 
-**NOTE:** This is for AstroNvim v4+
+**NOTE:** This is for AstroNvim v5+
 
 
 <a href="https://dotfyle.com/saumyajyoti/astronvim"><img src="https://dotfyle.com/saumyajyoti/astronvim/badges/plugins?style=flat" /></a>
