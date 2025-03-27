@@ -3,50 +3,48 @@
 
 ---@type LazySpec
 return {
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "User AstroFile",
-    main = "ibl",
-    dependencies = { "HiPhish/rainbow-delimiters.nvim" },
-    opts = function(_, opts)
-      if not opts.indent then opts.indent = {} end
-      opts.indent = {
-        char = "┊", -- ┊┊ │ --
-        tab_char = "│",
-      }
-      if not opts.scope then opts.scope = {} end
-      opts.scope.enabled = true
-      -- opts.scope.char = "-"
-      -- opts.scope.show_start = true
-      -- opts.scope.show_end = true
-      opts.scope.show_exact_scope = true
-      opts.scope.highlight = vim.tbl_get(vim.g, "rainbow_delimiters", "highlight")
-        or {
-          "RainbowDelimiterRed",
-          "RainbowDelimiterYellow",
-          "RainbowDelimiterBlue",
-          "RainbowDelimiterOrange",
-          "RainbowDelimiterGreen",
-          "RainbowDelimiterViolet",
-          "RainbowDelimiterCyan",
-        }
-      if not opts.exclude then opts.exclude = {} end
-      opts.exclude = {
-        filetypes = { "help", "alpha", "dashboard", "Trouble", "lazy", "neo-tree" },
-      }
-      if not opts.whitespace then opts.whitespace = {} end
-      opts.whitespace = {
-        remove_blankline_trail = true,
-      }
-    end,
-
-    config = function(plugin, opts)
-      require(plugin.main).setup(opts)
-
-      local hooks = require "ibl.hooks"
-      hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-    end,
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   enabled = false,
+  --   event = "User AstroFile",
+  --   main = "ibl",
+  --   dependencies = { "HiPhish/rainbow-delimiters.nvim" },
+  --   opts = function(_, opts)
+  --     if not opts.indent then opts.indent = {} end
+  --     opts.indent = {
+  --       char = "┊", -- ┊┊ │ --
+  --       tab_char = "│",
+  --     }
+  --     if not opts.scope then opts.scope = {} end
+  --     opts.scope.enabled = true
+  --     opts.scope.show_exact_scope = true
+  --     opts.scope.highlight = vim.tbl_get(vim.g, "rainbow_delimiters", "highlight")
+  --       or {
+  --         "RainbowDelimiterRed",
+  --         "RainbowDelimiterYellow",
+  --         "RainbowDelimiterBlue",
+  --         "RainbowDelimiterOrange",
+  --         "RainbowDelimiterGreen",
+  --         "RainbowDelimiterViolet",
+  --         "RainbowDelimiterCyan",
+  --       }
+  --     if not opts.exclude then opts.exclude = {} end
+  --     opts.exclude = {
+  --       filetypes = { "help", "alpha", "dashboard", "Trouble", "lazy", "neo-tree" },
+  --     }
+  --     if not opts.whitespace then opts.whitespace = {} end
+  --     opts.whitespace = {
+  --       remove_blankline_trail = true,
+  --     }
+  --   end,
+  --
+  --   config = function(plugin, opts)
+  --     require(plugin.main).setup(opts)
+  --
+  --     local hooks = require "ibl.hooks"
+  --     hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+  --   end,
+  -- },
 
   {
     "willothy/wezterm.nvim",
@@ -115,6 +113,7 @@ return {
     -- its recommended to load legendary.nvim before other plugins
     priority = 10000,
     lazy = false,
+    enabled = false,
     -- sqlite is only needed if you want to use frecency sorting
     -- dependencies = { "kkharji/sqlite.lua" },
     -- init = function()
@@ -156,24 +155,8 @@ return {
         diffview = true,
       },
     },
-    --     opts = {
-    --       lazy_nvim = {     auto_register = true },
-    -- which_key = {
-    --   -- Automatically add which-key tables to legendary
-    --   -- see ./doc/WHICH_KEY.md for more details
-    --   auto_register = true,
-    --   -- you can put which-key.nvim tables here,
-    --   -- or alternatively have them auto-register,
-    --   -- see ./doc/WHICH_KEY.md
-    --    },
-    --  extensions = {
-    --   nvim_tree = false,
-    --   smart_splits = true,
-    --   op_nvim = false,
-    --   diffview = true,
-    -- },
-    --     },
   },
+  -- },
   {
     "mrjones2014/smart-splits.nvim",
     lazy = false,
@@ -270,19 +253,6 @@ return {
     },
   },
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
-  {
-    "L3MON4D3/LuaSnip",
-    config = function(plugin, opts)
-      require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
-      -- add more custom luasnip configuration such as filetype extend or custom snippets
-      local luasnip = require "luasnip"
-      luasnip.filetype_extend("javascript", { "javascriptreact" })
-      -- load snippets paths
-      require("luasnip.loaders.from_vscode").lazy_load {
-        paths = { "U:/nvim/snippets" },
-      }
-    end,
-  },
 
   {
     "windwp/nvim-autopairs",
@@ -311,25 +281,6 @@ return {
         -- disable for .vim files, but it work for another filetypes
         Rule("a", "a", "-vim")
       )
-    end,
-  },
-  {
-    "rcarriga/nvim-notify",
-    -- init = false,
-    -- config = true,
-    keys = {
-      {
-        "<leader>ux",
-        function() require("notify").dismiss { silent = true, pending = true } end,
-        desc = "Dismiss all Notifications",
-      },
-    },
-    opts = function(_, opts)
-      -- local nonicons_extention = require("nvim-nonicons.extentions.nvim-notify")
-
-      opts.stages = "fade" -- fade_in_slide_out",
-      opts.timeout = 3000
-      -- opts.icons = nonicons_extention.icons
     end,
   },
 

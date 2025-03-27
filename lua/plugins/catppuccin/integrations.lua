@@ -29,6 +29,10 @@ return {
     scope_color = "overlay1",
     colored_indent_levels = true,
   },
+  snacks = {
+    enabled = true,
+    indent_scope_color = "overlay1", -- catppuccin color (eg. `lavender`) Default: text
+  },
   mini = {
     enabled = true,
     indentscope_color = "overlay2", -- catppuccin color (eg. `lavender`) Default: text

@@ -41,7 +41,7 @@ local header2 = {
 
 return {
   "goolord/alpha-nvim",
-  enabled = true,
+  enabled = false,
   optional = false,
   event = "VimEnter",
   dependencies = { "nvim-tree/nvim-web-devicons" },

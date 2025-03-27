@@ -1,4 +1,6 @@
+-- if false then
 return {
+
   {
     "rebelot/heirline.nvim",
     optional = true,
@@ -79,3 +81,4 @@ return {
     end,
   },
 }
+-- end

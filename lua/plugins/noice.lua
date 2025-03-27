@@ -1,6 +1,9 @@
+if true then return {} end -- disable noice
+
 return {
   {
     "folke/noice.nvim",
+    enabled = true,
     event = "VeryLazy",
     cond = not vim.g.neovide,
     dependencies = {

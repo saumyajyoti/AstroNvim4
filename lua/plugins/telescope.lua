@@ -1,3 +1,5 @@
+if true then return {} end -- disable telescope
+
 return {
 
   { "nvim-telescope/telescope-media-files.nvim", lazy = true },
