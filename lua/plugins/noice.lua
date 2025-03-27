@@ -1,4 +1,4 @@
-if true then return {} end -- disable noice
+-- if true then return {} end -- disable noice
 
 return {
   {
@@ -7,7 +7,7 @@ return {
     event = "VeryLazy",
     cond = not vim.g.neovide,
     dependencies = {
-      "MunifTanjim/nui.nvim",
+      -- "MunifTanjim/nui.nvim",
       {
         "AstroNvim/astrocore",
         opts = {
@@ -25,16 +25,16 @@ return {
     opts = {
       popupmenu = {
         -- cmp-cmdline has more sources and can be extended
-        backend = "cmp", -- backend to use to show regular cmdline completions
+        -- backend = "cmp", -- backend to use to show regular cmdline completions
       },
       messages = {
         view_search = false, -- view for search count messages. Set to `false` to disable
       },
       lsp = {
         override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
-          ["vim.lsp.util.stylize_markdown"] = false,
-          ["cmp.entry.get_documentation"] = false,
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
         },
         progress = { enabled = true },
         hover = { enabled = false, silent = false },
@@ -92,6 +92,48 @@ return {
         -- lsp_doc_border = true,
         inc_rename = true,
       },
+    },
+    config = function(_, opts)
+      -- HACK: noice shows messages from before it was enabled,
+      -- but this is not ideal when Lazy is installing plugins,
+      -- so clear the messages in this case.
+      if vim.o.filetype == "lazy" then vim.cmd [[messages clear]] end
+      require("noice").setup(opts)
+    end,
+    specs = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+        opts = function(_, opts)
+          if opts.ensure_installed ~= "all" then
+            opts.ensure_installed = require("astrocore").list_insert_unique(
+              opts.ensure_installed,
+              { "bash", "markdown", "markdown_inline", "regex", "vim" }
+            )
+          end
+        end,
+      },
+      -- {
+      --   "AstroNvim/astrolsp",
+      --   optional = true,
+      --   ---@param opts AstroLSPOpts
+      --   opts = function(_, opts)
+      --     local noice_opts = require("astrocore").plugin_opts "noice.nvim"
+      --     -- disable the necessary handlers in AstroLSP
+      --     if not opts.defaults then opts.defaults = {} end
+      --     -- TODO: remove lsp_handlers when dropping support for AstroNvim v4
+      --     if not opts.lsp_handlers then opts.lsp_handlers = {} end
+      --     if vim.tbl_get(noice_opts, "lsp", "hover", "enabled") ~= false then
+      --       opts.defaults.hover = nil
+      --       opts.lsp_handlers["textDocument/hover"] = false
+      --     end
+      --     if vim.tbl_get(noice_opts, "lsp", "signature", "enabled") ~= false then
+      --       opts.defaults.signature_help = nil
+      --       opts.lsp_handlers["textDocument/signatureHelp"] = false
+      --       if not opts.features then opts.features = {} end
+      --       opts.features.signature_help = true
+      --     end
+      --   end,
+      -- },
     },
     -- init = function() vim.g.lsp_handlers_enabled = false end,
   },

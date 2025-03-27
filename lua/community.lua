@@ -50,6 +50,10 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.python" },
+  {
+    "linux-cultist/venv-selector.nvim",
+    enabled = false,
+  },
   { import = "astrocommunity.pack.cs" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.typescript" },
@@ -66,7 +70,7 @@ return {
   -- { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.editing-support.dial-nvim" },
   { import = "astrocommunity.editing-support.comment-box-nvim" },
-  { import = "astrocommunity.editing-support.nvim-devdocs" },
+  -- { import = "astrocommunity.editing-support.nvim-devdocs" },
 
   -- { import = "astrocommunity.search.sad-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
@@ -99,21 +103,21 @@ return {
       }
     end,
   },
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  { import = "astrocommunity.completion.copilot-lua" },
+  -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
   -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
   {
     "karb94/neoscroll.nvim",
     opts = function(_, opts) opts.easing = "quadratic" end,
   },
   -- { import = "astrocommunity.scrolling.vim-smoothie" },
-  { import = "astrocommunity.project.project-nvim" },
+  -- { import = "astrocommunity.project.project-nvim" }, TBE
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   -- { import = "astrocommunity.color.tint-nvim" },
   { import = "astrocommunity.git.fugit2-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.openingh-nvim" },
-  { import = "astrocommunity.git.octo-nvim" },
+  -- { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.git.gitlinker-nvim" },
 
   -- { import = "astrocommunity.git.neogit" },
@@ -122,7 +126,6 @@ return {
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   -- { import = "astrocommunity.editing-support.bigfile-nvim" },
   { import = "astrocommunity.neovim-lua-development.helpview-nvim" },
-  -- { import = "astrocommunity.neovim-lua-development.lazydev-nvim" },
   {
     "folke/lazydev.nvim",
     dependencies = {
@@ -144,12 +147,9 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.motion.before-nvim" },
-  -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
   { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
   { import = "astrocommunity.fuzzy-finder.namu-nvim" },
-  -- { import = "astrocommunity.fuzzy-finder.snacks-picker" },
   { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
-  -- { import = "astrocommunity.pack.nvchad-ui" },
 }

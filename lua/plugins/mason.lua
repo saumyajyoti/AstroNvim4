@@ -12,8 +12,6 @@ return {
         -- install language servers
         "lua-language-server",
         "clangd",
-        "csharp_ls",
-        "cmake",
         -- install formatters
         "prettierd",
         "cpplint",

@@ -2,6 +2,38 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      toggle = { enabled = true },
+      indent = {
+        enabled = true,
+        indent = {
+          priority = 1,
+          enabled = true, -- enable indent guides
+          char = "│",
+          only_scope = true, -- only show indent guides of the scope
+          only_current = true, -- only show indent guides in the current window
+          hl = "SnacksIndent", ---@type string|string[] hl groups for indent guides
+          -- can be a list of hl groups to cycle through
+          -- hl = {
+          --   "SnacksIndent1",
+          --   "SnacksIndent2",
+          --   "SnacksIndent3",
+          --   "SnacksIndent4",
+          --   "SnacksIndent5",
+          --   "SnacksIndent6",
+          --   "SnacksIndent7",
+          --   "SnacksIndent8",
+          -- },
+        },
+        animate = {
+          enabled = vim.fn.has "nvim-0.10" == 1,
+          style = "out",
+          easing = "linear",
+          duration = {
+            step = 30, -- ms per step
+            total = 1000, -- maximum duration
+          },
+        },
+      },
       animate = {
         enabled = false,
         -- your animate configuration comes here

@@ -1,6 +1,7 @@
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- PLEASE REMOVE THE EXAMPLES YOU HAVE NO INTEREST IN BEFORE ENABLING THIS FILE
 -- Here are some examples:
+local Snacks = require "snacks"
 
 ---@type LazySpec
 return {
@@ -76,7 +77,7 @@ return {
     "folke/which-key.nvim",
     opts = function(_, opts)
       opts.icons = {
-        separator = " ", -- "➜ ",
+        separator = " ", -- "➜ ",  
       }
       opts.plugins = {
         marks = true, -- shows a list of your marks on ' and `
@@ -287,7 +288,7 @@ return {
 
   {
     "chrisgrieser/nvim-scissors",
-    dependencies = "nvim-telescope/telescope.nvim", -- optional
+    dependencies = "folke/snacks.nvim", -- optional
     opts = {
       snippetDir = "U:/nvim/snippets",
     },
@@ -380,6 +381,7 @@ return {
   },
   {
     "lewis6991/hover.nvim",
+    enabled = true,
     opts = {
       init = function()
         -- Require providers
@@ -422,7 +424,7 @@ return {
       -- )
       -- Mouse support
       -- vim.keymap.set("n", "<MouseMove>", require("hover").hover_mouse, { desc = "hover.nvim (mouse)" })
-      vim.o.mousemoveevent = true
+      vim.o.mousemoveevent = false
     end,
     dependencies = {
       {
@@ -459,6 +461,7 @@ return {
   },
   {
     "sphamba/smear-cursor.nvim",
+    enabled = false,
     event = "VeryLazy",
     cond = vim.g.neovide == nil,
     opts = {
@@ -476,5 +479,61 @@ return {
         },
       },
     },
+  },
+  {
+    "Saghen/blink.cmp",
+    dependencies = {
+      {
+        "giuxtaposition/blink-cmp-copilot",
+      },
+    },
+    specs = {
+      {
+        "Saghen/blink.cmp",
+        opts = {
+          sources = {
+            default = { "lsp", "path", "snippets", "buffer", "copilot" },
+            providers = {
+              copilot = {
+                name = "copilot",
+                module = "blink-cmp-copilot",
+                score_offset = 100,
+                async = true,
+              },
+            },
+          },
+          fuzzy = {
+            implementation = "prefer_rust",
+            prebuilt_binaries = { download = true, ignore_version_mismatch = false },
+          },
+        },
+      },
+    },
+    -- opts = {
+    --   fuzzy = {
+    --     implementation = "prefer_rust",
+    --     prebuilt_binaries = { download = true, ignore_version_mismatch = false },
+    --   },
+    -- },
+  },
+  {
+    "nvim-tree/nvim-web-devicons",
+    enabled = false,
+  },
+  {
+    "folke/todo-comments.nvim",
+    optional = true,
+    keys = {
+      { "<leader>st", function() Snacks.picker.todo_comments() end, desc = "Todo" },
+      {
+        "<leader>sT",
+        function() Snacks.picker.todo_comments { keywords = { "TODO", "FIX", "FIXME" } } end,
+        desc = "Todo/Fix/Fixme",
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    enabled = false,
   },
 }
