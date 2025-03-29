@@ -30,7 +30,7 @@ return {
     crust = "#E7DEB7",
   },
   mocha = { -- custom
-    rosewater = "#ffc6be",
+    rosewater = "#f8ad9d",
     flamingo = "#fb4934",
     pink = "#ff75a0",
     mauve = "#d3869b",
