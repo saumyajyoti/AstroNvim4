@@ -482,26 +482,26 @@ return {
   },
   {
     "Saghen/blink.cmp",
-    dependencies = {
-      {
-        "giuxtaposition/blink-cmp-copilot",
-      },
-    },
+    -- dependencies = {
+    --   {
+    --     "giuxtaposition/blink-cmp-copilot",
+    --   },
+    -- },
     specs = {
       {
         "Saghen/blink.cmp",
         opts = {
-          sources = {
-            default = { "lsp", "path", "snippets", "buffer", "copilot" },
-            providers = {
-              copilot = {
-                name = "copilot",
-                module = "blink-cmp-copilot",
-                score_offset = 100,
-                async = true,
-              },
-            },
-          },
+          -- sources = {
+          --   default = { "lsp", "path", "snippets", "buffer", "copilot" },
+          --   providers = {
+          --     copilot = {
+          --       name = "copilot",
+          --       module = "blink-cmp-copilot",
+          --       score_offset = 100,
+          --       async = true,
+          --     },
+          --   },
+          -- },
           fuzzy = {
             implementation = "prefer_rust",
             prebuilt_binaries = { download = true, ignore_version_mismatch = false },

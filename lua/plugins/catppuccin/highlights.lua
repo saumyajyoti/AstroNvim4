@@ -16,7 +16,7 @@ return {
       LazyProgressDone = { fg = colors.blue, style = { "nocombine" } },
       LazyProgressTodo = { fg = colors.overlay0, style = { "nocombine" } },
 
-      IndentBlanklineContextChar = { fg = colors.peach },
+      -- IndentBlanklineContextChar = { fg = colors.peach },
       TelescopePreviewNormal = { bg = colors.crust },
       TelescopePreviewBorder = { bg = colors.crust, fg = colors.crust },
 

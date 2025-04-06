@@ -103,7 +103,7 @@ return {
       }
     end,
   },
-  { import = "astrocommunity.completion.copilot-lua" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
   -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
   {
@@ -119,7 +119,6 @@ return {
   { import = "astrocommunity.git.openingh-nvim" },
   -- { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.git.gitlinker-nvim" },
-
   -- { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.editing-support.nvim-context-vt" },
   { import = "astrocommunity.editing-support.cutlass-nvim" },

@@ -102,6 +102,8 @@ return {
           SnacksPickerListFooter = { bg = bg },
           SnacksPickerPrompt = { fg = get_hlgroup("Special").fg, bg = bg },
           SnacksPickerTree = { bg = bg },
+
+          SnacksDashboardIcon = { fg = get_hlgroup("CursorLineNr").fg },
         }
       end,
     },
