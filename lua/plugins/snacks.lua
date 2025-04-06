@@ -74,7 +74,18 @@ return {
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
       },
+      ---@class snacks.picker.Config
       picker = {
+        win = {
+          preview = {
+            wo = {
+              number = false,
+              relativenumber = false,
+              signcolumn = "no",
+              foldcolumn = "0",
+            },
+          },
+        },
         sources = {
           explorer = {
             -- your explorer picker configuration comes here

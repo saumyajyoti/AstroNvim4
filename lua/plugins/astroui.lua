@@ -71,5 +71,39 @@ return {
         },
       },
     },
+    highlights = {
+      -- set highlights for all themes
+      -- use a function override to let us use lua to retrieve
+      -- colors from highlight group there is no default table
+      -- so we don't need to put a parameter for this function
+      init = function()
+        local get_hlgroup = require("astroui").get_hlgroup
+        -- get highlights from highlight groups
+        local bg_alt = get_hlgroup("Normal").bg
+        local bg_2 = get_hlgroup("Visual").bg
+        local green = get_hlgroup("String").fg
+        -- local red = get_hlgroup("Error").fg
+        local bg = get_hlgroup("LineNr").bg -- "#1d2021"
+        local input_bg = get_hlgroup("CursorLineNr").bg -- "#32302f"
+        -- return a table of highlights for snacks.picker based on
+        -- colors retrieved from highlight groups
+        return {
+          SnacksPickerBorder = { fg = bg, bg = bg },
+          SnacksPicker = { bg = bg },
+          SnacksPickerPreviewBorder = { fg = bg_alt, bg = bg_alt },
+          SnacksPickerPreview = { bg = bg_alt },
+          SnacksPickerPreviewTitle = { fg = bg, bg = green },
+          SnacksPickerBoxBorder = { fg = bg, bg = bg },
+          SnacksPickerInputBorder = { fg = input_bg, bg = bg },
+          -- SnacksPickerInputSearch = { fg = red, bg = bg },
+          SnacksPickerListBorder = { fg = bg, bg = bg },
+          SnacksPickerList = { bg = bg },
+          SnacksPickerListTitle = { fg = bg, bg = "#076678" },
+          SnacksPickerListFooter = { bg = bg },
+          SnacksPickerPrompt = { fg = get_hlgroup("Special").fg, bg = bg },
+          SnacksPickerTree = { bg = bg },
+        }
+      end,
+    },
   },
 }

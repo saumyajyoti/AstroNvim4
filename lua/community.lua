@@ -150,6 +150,6 @@ return {
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
   { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
   { import = "astrocommunity.fuzzy-finder.namu-nvim" },
-  { import = "astrocommunity.recipes.picker-nvchad-theme" },
+  -- { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
 }
