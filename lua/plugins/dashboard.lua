@@ -33,14 +33,14 @@ return {
             { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
             {
               icon = " ",
-              key = "g",
+              key = "G",
               desc = "Find modified file",
               action = ":lua Snacks.dashboard.pick('git_status')",
             },
             {
-              icon = " ",
+              icon = " ",
               key = "c",
-              desc = "Config",
+              desc = "Nvim Config",
               action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
             },
             { icon = " ", key = "s", desc = "Restore Session", section = "session" },

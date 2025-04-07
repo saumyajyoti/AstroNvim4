@@ -58,7 +58,7 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.go" },
-  -- { import = "astrocommunity.icon.mini-icons" },
+  { import = "astrocommunity.icon.mini-icons" },
   { import = "astrocommunity.pack.chezmoi" },
 
   --
