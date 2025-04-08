@@ -59,6 +59,22 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.icon.mini-icons" },
+  {
+    "echasnovski/mini.icons",
+    optional = true,
+    opts = {
+      extension = {
+        h = { glyph = "𝖍", hl = "MiniIconsPurple" },
+      },
+      -- file = {
+      --   [".go-version"] = { glyph = "", hl = "MiniIconsBlue" },
+      -- },
+      -- filetype = {
+      --   gotmpl = { glyph = "󰟓", hl = "MiniIconsGrey" },
+      -- },
+    },
+  },
+
   { import = "astrocommunity.pack.chezmoi" },
 
   --
