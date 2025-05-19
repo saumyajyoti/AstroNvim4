@@ -1,4 +1,6 @@
-# AstroNvim4/
+# AstroNvim
+
+NOTE: This is for AstroNvim v5+
 
 <a href="https://dotfyle.com/saumyajyoti/astronvim"><img src="https://dotfyle.com/saumyajyoti/astronvim/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/saumyajyoti/astronvim"><img src="https://dotfyle.com/saumyajyoti/astronvim/badges/leaderkey?style=flat" /></a>
@@ -7,7 +9,7 @@
 
 ## Install Instructions
 
- > Install requires Neovim 0.9+. Always review the code before installing a configuration.
+ > Install requires Neovim 0.10+. Always review the code before installing a configuration.
 
 Clone the repository and install the plugins:
 
