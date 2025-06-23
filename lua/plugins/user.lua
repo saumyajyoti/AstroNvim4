@@ -536,4 +536,10 @@ return {
     "nvim-telescope/telescope.nvim",
     enabled = false,
   },
+  {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
+  },
 }
